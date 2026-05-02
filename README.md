@@ -1,2 +1,2 @@
 # Dochacat-CatTower
-Im still working on this stuff so give me a bit
+"A chat system that does things differently. Built for friends, communities, and hobbyists—not for corporations."
