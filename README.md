@@ -9,7 +9,7 @@ Welcome to the official documentation for **Dochacat:3 CatTower**!
 
 ## Installation
 
-The first step is to download Dochacat:3 CatTower. You can get it [here](#). *(Don't forget to add your actual download link here!)*
+The first step is to download Dochacat:3 CatTower. You can get it [here](https://github.com/Villylily/Dochacat-CatTower/releases). *(Don't forget to add your actual download link here!)*
 
 Once you have your file, drag it to your preferred location and extract it. Open the extracted folder, double-click the `StartDochacat.bat` file, and run it.
 
