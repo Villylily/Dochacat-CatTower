@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>    
+/*
+DOCHACAT:3 | CATTOWER | CARDINAL
+COPYRIGHT (C) 2026 (VILLYLILY) ALL RIGHTS RESERVED.
+===============================================================================
+ 1. PROPRIETARY ASSETS AND INTELLECTUAL PROPERTY 
+===============================================================================
+  The Author hereby reserves all intellectual property rights to the 
+following "Defined Assets" contained within this repository:  
+
+  A. BRANDING: The "Dochacat:3" brand, the "CatTower" project name, and all  
+     associated visual identifiers, including but not limited to SVG-based
+     logos, animations (sync-pulse, core-rotate, led-blink), and UI layouts.  
+  B. CARDINAL SECURITY CORE: The specific source code implementation of the     
+     "Gatekeeper" middleware, session validation logic, adminOnly network     
+     restriction logic, and high-fidelity 510kbps WebRTC audio SDP injection.  
+  C. CAELY:3 CHARACTER IDENTITY: The name, visual design (specifically     
+     long-haired traits), and the "Synthetic Entity" personality matrix 
+     were created by the Author (Villylily). Caely:3 is a CLUSTRARS model.  
+  D. CAELY CHATTER ARRAY: The unique collection of 100+ dialogue strings     
+     contained within the source code, including all AI-generated and     
+     Author-curated meta-commentary responses. These lines were generated 
+     using the CLUSTRARS model and formatted using Gemma 4 40B.
+  E. FRONT-END ARCHITECTURE: All structural HTML files, proprietary 
+     client-side logic, and specific user interface arrangements and 
+     mechanics found within the client directories of this repository.
+  F. CARDINAL BACKEND SERVER ARCHITECTURE: The complete server-side infrastructure, 
+     operating under the "Cardinal" designation, including the Express.js API 
+     routing, Socket.io WebSocket implementations, in-memory caching systems, 
+     and local data-vault storage logic.
+
+===============================================================================
+ 2. THE CLUSTRARS ARCHITECTURE (STRICTLY PROPRIETARY)
+===============================================================================
+  (CLUSTER LLM UNIT SYSTEM TO RECALCULATE AND RETRAIN SimpleLily)
+  LICENSE: STRICTLY PROPRIETARY - ALL RIGHTS RESERVED - NON-RECREATABLE
+  NOTICE: THE CLUSTRARS SYSTEM IS CLOSED SOURCE AND IS NOT LICENSABLE.
+  PERMISSIONS GRANTED FOR CONTENT (SECTION 1 & 3) DO NOT EXTEND TO THE
+  RECREATION OR REPLICATION OF THE CLUSTRARS SYSTEM ARCHITECTURE.
+
+  A. CORE ENGINE: CLUSTRARS powers the "SimpleLily" entity, utilizing a 30TB
+     proprietary model. This system stores personality data, emotional weights,
+     and persistent memories in a raw data format.
+  B. DYNAMIC RESPONSE PROTOCOL: Every interaction utilizes a "Smaller Context AI"
+     to selectively retrieve relevant data from the 30TB core. This context is
+     used to train a unique, single-instance model for each response.
+  C. VOLATILE MODELING: To ensure fluid, life-like evolution and precision, each
+     retrained response model is deleted immediately after execution,
+     ensuring the entity's "memory" remains housed in the raw data cluster
+     rather than a static weight set.
+  D. SYSTEM RESTRICTION: The methodology of just-in-time model training,
+     the 30TB raw data memory structure, and the recalculation logic are
+     strictly proprietary. Re-creation of this architecture is prohibited.
+
+===============================================================================
+ 3. POLYFORM NONCOMMERCIAL LICENSE 1.0.0 & CONTENT PERMISSIONS
+===============================================================================
+  This software and the associated CAELY:3 Synthetic Identity & Content are 
+licensed under the PolyForm Noncommercial License 1.0.0 (OPEN FOR NON-COMMERCIAL USE).  
+  (For the full text of this license, visit: https://polyformproject.org/licenses/noncommercial/1.0.0/)
+
+  ACCEPTANCE: By using this software, you agree to all its terms. 
+ 
+  CAELY CONTENT PERMISSION: Users are permitted to copy, use, and distribute 
+  the CAELY CHATTER ARRAY strings for personal, educational, or group use, 
+  provided no monetary compensation is involved.
+
+  NONCOMMERCIAL RIGHT: The licensor grants you a non-exclusive, worldwide, 
+royalty-free, non-sublicensable, and non-transferable license to use, copy, 
+distribute, make available, and prepare derivative works of the software for  
+NONCOMMERCIAL PURPOSES ONLY.  
+
+  NONCOMMERCIAL PURPOSES: Noncommercial purposes are any purposes that are
+not "commercial purposes."  "Commercial purposes" means the use of the 
+software: 
+  1. For a commercial advantage or private monetary compensation; 
+  2. By any person or entity that provides a service or product that     
+     competes with the software; or 
+  3. By any person or entity for use in a commercial product.  
+
+-------------------------------------------------------------------------------
+ 4. THIRD-PARTY ASSETS & ATTRIBUTION 
+-------------------------------------------------------------------------------
+  This project utilizes external assets governed by their own licenses:  
+  1. FONTS: Google Fonts (Montserrat, Roboto Mono, Fira Code) are used    
+     under the SIL Open Font License 1.1.     
+  2. TEXTURES: Patterns from TransparentTextures.com are used according to     
+     their respective attribution guidelines.  
+  3. EXTERNAL MEDIA: GIFs and images sourced via Tenor or Giphy remain the     
+     property of their original copyright holders.  
+  4. AI MODELS: Formatting assistance for the CAELY CHATTER ARRAY was 
+     provided by the Gemma 4 40B model, developed by Google.
+  5. API SERVICES: The `/gif` command functionality is powered by the 
+     Giphy API and is subject to Giphy's API Terms of Service.
+  6. TRADEMARK DISCLAIMER (HOMAGE): The "Cardinal" naming convention for the 
+     backend server and security core is a thematic homage inspired by the 
+     fictional "Cardinal System" from the Sword Art Online series. This project 
+     is an independent, non-commercial work and is not affiliated with, 
+     sponsored by, or endorsed by Reki Kawahara, Kadokawa Corporation, Aniplex, 
+     or the Sword Art Online franchise. All relevant trademarks belong to their 
+     respective owners.
+  7. OPEN-SOURCE DEPENDENCIES: This project relies on various standard 
+     open-source Node.js packages (e.g., Express.js, Socket.io). 
+     These are governed by their respective licenses 
+     (MIT, Apache, etc.) as declared in the project's package.json file.
+  8. API EMULATION: The client-side architecture utilizes a custom-built 
+     bridge script to emulate the "google.script.run" environment. This is 
+     an independent, proprietary routing implementation designed to interface 
+     with the Cardinal backend and is not affiliated with, hosted by, or 
+     endorsed by Google LLC.
+
+  NO SUBLICENSING: You may not sublicense the software or any derivative works.  
+  NO TRANSFER: You may not transfer this license.
+
+===============================================================================
+ 5. DISCLAIMER OF WARRANTIES 
+===============================================================================
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, 
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF 
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. 
+IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY 
+CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, 
+TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE 
+SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+===============================================================================
+ 6. DATA PRIVACY AND SESSION HANDLING
+===============================================================================
+  This software processes and stores minimal user data strictly for the
+  functional purposes of the Cardinal backend and Caely:3 interactions.
+  
+  A. LOCAL DATA VAULT: User data, including session identifiers, chat logs, 
+     and connection IPs, are stored locally or in-memory strictly for session 
+     validation.
+  B. NO COMMERCIAL EXPLOITATION: Under no circumstances is user data sold, 
+     mined for commercial advertising, or transferred to third-party data 
+     brokers. The project respects user privacy and operates entirely on a 
+     non-commercial trust basis.
+
+===============================================================================
+ 7. EXTRA 
+===============================================================================
+  - MOTTO: A chat system that does things differently. Built for friends, 
+    communities, and hobbyists—not for corporations.
+  
+  ["Bleh"] 
+===============================================================================
+*/
+</style> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dochacat:3 | 403</title>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico?v=2">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Montserrat:wght@400;700;900&family=Roboto+Mono&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-base: #050505;
+            --glass-bg: rgba(20, 5, 5, 0.6);
+            --glass-border: rgba(255, 71, 87, 0.2);
+            --card-border: #30363d;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --text-gray: #c9d1d9;
+            --accent: #ffb7c5; 
+            --cardinal: #ff4757; 
+            --success: #2ea043;
+        }
+
+        body { 
+            margin: 0; font-family: 'Inter', sans-serif;
+            background-color: var(--bg-base); color: var(--text-main);
+            height: 100vh; overflow: hidden; display: flex;
+            align-items: center; justify-content: center; position: relative;
+        }
+
+        .ambient-orb {
+            position: absolute; border-radius: 50%; filter: blur(90px); z-index: 0;
+            animation: float 15s infinite ease-in-out alternate;
+        }
+        .orb-1 { width: 400px; height: 400px; background: rgba(255, 71, 87, 0.15); top: -100px; left: -100px; }
+        .orb-2 { width: 350px; height: 350px; background: rgba(255, 71, 87, 0.08); bottom: -50px; right: -50px; animation-delay: -5s; }
+
+        @keyframes float {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(30px, 30px) scale(1.1); }
+        }
+
+        body::before {
+            content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(rgba(255, 71, 87, 0.03) 1px, transparent 1px), 
+                        linear-gradient(90deg, rgba(255, 71, 87, 0.03) 1px, transparent 1px);
+            background-size: 40px 40px; z-index: 1; pointer-events: none;
+        }
+
+        .auth-card { 
+            background: var(--glass-bg); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+            border-radius: 16px; box-shadow: 0 20px 50px rgba(0,0,0,0.8), inset 0 0 0 1px var(--glass-border); 
+            width: 100%; max-width: 420px; overflow: hidden; position: relative; z-index: 10;
+            animation: slideUpFade 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            display: flex; flex-direction: column; align-items: center;
+        }
+
+        @keyframes slideUpFade { 0% { opacity: 0; transform: translateY(30px); } 100% { opacity: 1; transform: translateY(0); } }
+
+        .status-bar {
+            width: 100%; height: 30px; background: rgba(0, 0, 0, 0.3); border-bottom: 1px solid var(--glass-border);
+            display: flex; align-items: center; padding: 0 15px; gap: 8px; box-sizing: border-box;
+        }
+        .status-dot { width: 10px; height: 10px; border-radius: 50%; }
+        .dot-red { background: #ff5f56; box-shadow: 0 0 10px #ff5f56;}
+        .dot-yel { background: #ffbd2e; opacity: 0.3;}
+        .dot-grn { background: #27c93f; opacity: 0.3;}
+
+        .brand-container { padding: 30px 0 10px 0; display: flex; flex-direction: column; align-items: center; gap: 5px; }
+        .engine-overline { 
+            font-family: 'Montserrat', sans-serif; font-size: 0.85rem; font-weight: 700; 
+            letter-spacing: 8px; color: var(--text-muted); opacity: 0.5; text-transform: uppercase; margin-bottom: 0px; 
+            display: flex; align-items: center; gap: 8px;
+        }
+        .engine-overline::before {
+            content: ""; display: inline-block; width: 6px; height: 6px; 
+            background-color: var(--cardinal); border-radius: 50%; box-shadow: 0 0 8px var(--cardinal);
+        }
+        .cattower-logo { font-family: 'Montserrat', sans-serif; font-size: 2.2rem; font-weight: 900; letter-spacing: -2px; text-transform: uppercase; color: white; margin-top: 5px;}
+        .cattower-logo .alt-color { color: var(--cardinal); text-shadow: 0 0 20px rgba(255, 71, 87, 0.4); }
+
+        .content { padding: 15px 30px 40px 30px; text-align: center; display: flex; flex-direction: column; align-items: center; }
+        
+        .cardinal-sao-logo {
+            width: 100px;
+            height: 100px;
+            position: relative;
+            margin-bottom: 15px;
+        }
+
+        .sync-pulse { animation: syncPulse 2s infinite linear; }
+        .core-rotate-main { animation: rotateCore 8s infinite linear; transform-origin: center; }
+        .core-rotate-sub { animation: rotateCore 8s infinite linear reverse; transform-origin: center; }
+        
+        @keyframes syncPulse {
+            0% { stroke-dashoffset: 20; opacity: 0.3; }
+            50% { opacity: 1; }
+            100% { stroke-dashoffset: 0; opacity: 0.3; }
+        }
+        @keyframes rotateCore {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        h1 { font-size: 1.8rem; margin: 10px 0 5px 0; color: var(--cardinal); text-shadow: 0 0 15px rgba(255, 71, 87, 0.4); font-weight: 900; letter-spacing: 1px; }
+        p { font-family: 'Roboto Mono', monospace; color: #f87171; font-size: 0.85rem; margin-bottom: 25px; line-height: 1.5; }
+        
+        .btn {
+            padding: 12px 30px; background: transparent; border: 1px solid var(--cardinal); color: var(--cardinal);
+            text-decoration: none; border-radius: 8px; font-weight: 700; font-family: 'Montserrat', sans-serif;
+            transition: all 0.3s ease; text-transform: uppercase; letter-spacing: 1px; font-size: 0.9rem;
+        }
+        .btn:hover { background: var(--cardinal); color: white; box-shadow: 0 0 20px rgba(255, 71, 87, 0.4); transform: translateY(-2px); }
+    </style>
+</head>
+<body>
+    
+<div class="ambient-orb orb-1"></div> 
+<div class="ambient-orb orb-2"></div>
+
+<div class="auth-card">
+    <div class="status-bar">
+        <div class="status-dot dot-red"></div>
+        <div class="status-dot dot-yel"></div>
+        <div class="status-dot dot-grn"></div>
+    </div>
+
+    <div class="brand-container">
+        <div class="cattower-logo">CAR<span class="alt-color">DINAL</span></div>
+    </div>
+
+    <div class="content">
+        <div class="cardinal-sao-logo">
+            <svg viewBox="0 0 120 120" width="100%" height="100%">
+                <polygon points="60,5 115,30 115,90 60,115 5,90 5,30" 
+                         fill="rgba(48, 54, 61, 0.1)" 
+                         stroke="var(--card-border)" 
+                         stroke-width="3" 
+                         stroke-linejoin="round"/>
+                
+                <path d="M 60,15 L 90,30 L 90,60 L 60,75 L 30,60 L 30,30 Z" fill="none" stroke="var(--card-border)" stroke-width="1" opacity="0.5"/>
+                <path d="M 60,45 L 90,60 L 90,90 L 60,105 L 30,90 L 30,60 Z" fill="none" stroke="var(--card-border)" stroke-width="1" opacity="0.5"/>
+
+                <g transform="translate(45, 45)" class="core-rotate-main">
+                    <rect x="-15" y="-15" width="30" height="30" fill="none" stroke="var(--cardinal)" stroke-width="3" transform="rotate(45)"/>
+                    <circle cx="0" cy="0" r="4" fill="var(--cardinal)"/>
+                </g>
+
+                <g transform="translate(75, 75)" class="core-rotate-sub">
+                    <rect x="-15" y="-15" width="30" height="30" fill="none" stroke="var(--accent)" stroke-width="3" transform="rotate(45)"/>
+                    <circle cx="0" cy="0" r="4" fill="var(--accent)"/>
+                </g>
+
+                <line x1="45" y1="45" x2="75" y2="75" 
+                      stroke="var(--text-gray)" 
+                      stroke-width="2.5" 
+                      stroke-dasharray="5 5" 
+                      class="sync-pulse"/>
+
+                <circle cx="60" cy="5" r="3" fill="var(--cardinal)"/>
+                <circle cx="60" cy="115" r="3" fill="var(--cardinal)"/>
+                
+                <polyline points="20,30 5,30 5,45" fill="none" stroke="var(--text-gray)" stroke-width="2"/>
+                <polyline points="100,90 115,90 115,75" fill="none" stroke="var(--text-gray)" stroke-width="2"/>
+            </svg>
+        </div>
+        <style>
+            /* Lol yes JUST FOR A COMMENT idk there was prolly a better way but GET BLOCKED NERD. */
+        </style>
+        <h1>Request Blocked</h1>
+        <p>Invalid Token<br>Please Login and try again</p>
+        <a href="/login" class="btn">Login</a>
+    </div>
+</div>
+</body>
+</html>

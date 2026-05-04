@@ -1,0 +1,20 @@
+{
+  "name": "dochacat3-cattower",
+  "version": "0.0.1",
+  "description": "A chat system that does things differently. Built for friends, communities, and hobbyists—not for corporations.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "express": "^5.2.1",
+    "multer": "^2.1.1",
+    "selfsigned": "^5.5.0",
+    "socket.io": "^4.8.3"
+  }
+}

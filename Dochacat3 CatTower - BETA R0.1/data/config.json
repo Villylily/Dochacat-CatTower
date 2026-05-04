@@ -1,0 +1,8 @@
+{
+  "port": 3000,
+  "registrationOpen": true,
+  "invitePassword": "CHANGE_ME",
+  "globalMute": false,
+  "maintenanceMode": false,
+  "giphyApiKey": ""
+}

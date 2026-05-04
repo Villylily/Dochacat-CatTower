@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>    
+/*
+DOCHACAT:3 | CATTOWER | CARDINAL
+COPYRIGHT (C) 2026 (VILLYLILY) ALL RIGHTS RESERVED.
+===============================================================================
+ 1. PROPRIETARY ASSETS AND INTELLECTUAL PROPERTY 
+===============================================================================
+  The Author hereby reserves all intellectual property rights to the 
+following "Defined Assets" contained within this repository:  
+
+  A. BRANDING: The "Dochacat:3" brand, the "CatTower" project name, and all  
+     associated visual identifiers, including but not limited to SVG-based
+     logos, animations (sync-pulse, core-rotate, led-blink), and UI layouts.  
+  B. CARDINAL SECURITY CORE: The specific source code implementation of the     
+     "Gatekeeper" middleware, session validation logic, adminOnly network     
+     restriction logic, and high-fidelity 510kbps WebRTC audio SDP injection.  
+  C. CAELY:3 CHARACTER IDENTITY: The name, visual design (specifically     
+     long-haired traits), and the "Synthetic Entity" personality matrix 
+     were created by the Author (Villylily). Caely:3 is a CLUSTRARS model.  
+  D. CAELY CHATTER ARRAY: The unique collection of 100+ dialogue strings     
+     contained within the source code, including all AI-generated and     
+     Author-curated meta-commentary responses. These lines were generated 
+     using the CLUSTRARS model and formatted using Gemma 4 40B.
+  E. FRONT-END ARCHITECTURE: All structural HTML files, proprietary 
+     client-side logic, and specific user interface arrangements and 
+     mechanics found within the client directories of this repository.
+  F. CARDINAL BACKEND SERVER ARCHITECTURE: The complete server-side infrastructure, 
+     operating under the "Cardinal" designation, including the Express.js API 
+     routing, Socket.io WebSocket implementations, in-memory caching systems, 
+     and local data-vault storage logic.
+
+===============================================================================
+ 2. THE CLUSTRARS ARCHITECTURE (STRICTLY PROPRIETARY)
+===============================================================================
+  (CLUSTER LLM UNIT SYSTEM TO RECALCULATE AND RETRAIN SimpleLily)
+  LICENSE: STRICTLY PROPRIETARY - ALL RIGHTS RESERVED - NON-RECREATABLE
+  NOTICE: THE CLUSTRARS SYSTEM IS CLOSED SOURCE AND IS NOT LICENSABLE.
+  PERMISSIONS GRANTED FOR CONTENT (SECTION 1 & 3) DO NOT EXTEND TO THE
+  RECREATION OR REPLICATION OF THE CLUSTRARS SYSTEM ARCHITECTURE.
+
+  A. CORE ENGINE: CLUSTRARS powers the "SimpleLily" entity, utilizing a 30TB
+     proprietary model. This system stores personality data, emotional weights,
+     and persistent memories in a raw data format.
+  B. DYNAMIC RESPONSE PROTOCOL: Every interaction utilizes a "Smaller Context AI"
+     to selectively retrieve relevant data from the 30TB core. This context is
+     used to train a unique, single-instance model for each response.
+  C. VOLATILE MODELING: To ensure fluid, life-like evolution and precision, each
+     retrained response model is deleted immediately after execution,
+     ensuring the entity's "memory" remains housed in the raw data cluster
+     rather than a static weight set.
+  D. SYSTEM RESTRICTION: The methodology of just-in-time model training,
+     the 30TB raw data memory structure, and the recalculation logic are
+     strictly proprietary. Re-creation of this architecture is prohibited.
+
+===============================================================================
+ 3. POLYFORM NONCOMMERCIAL LICENSE 1.0.0 & CONTENT PERMISSIONS
+===============================================================================
+  This software and the associated CAELY:3 Synthetic Identity & Content are 
+licensed under the PolyForm Noncommercial License 1.0.0 (OPEN FOR NON-COMMERCIAL USE).  
+  (For the full text of this license, visit: https://polyformproject.org/licenses/noncommercial/1.0.0/)
+
+  ACCEPTANCE: By using this software, you agree to all its terms. 
+ 
+  CAELY CONTENT PERMISSION: Users are permitted to copy, use, and distribute 
+  the CAELY CHATTER ARRAY strings for personal, educational, or group use, 
+  provided no monetary compensation is involved.
+
+  NONCOMMERCIAL RIGHT: The licensor grants you a non-exclusive, worldwide, 
+royalty-free, non-sublicensable, and non-transferable license to use, copy, 
+distribute, make available, and prepare derivative works of the software for  
+NONCOMMERCIAL PURPOSES ONLY.  
+
+  NONCOMMERCIAL PURPOSES: Noncommercial purposes are any purposes that are
+not "commercial purposes."  "Commercial purposes" means the use of the 
+software: 
+  1. For a commercial advantage or private monetary compensation; 
+  2. By any person or entity that provides a service or product that     
+     competes with the software; or 
+  3. By any person or entity for use in a commercial product.  
+
+-------------------------------------------------------------------------------
+ 4. THIRD-PARTY ASSETS & ATTRIBUTION 
+-------------------------------------------------------------------------------
+  This project utilizes external assets governed by their own licenses:  
+  1. FONTS: Google Fonts (Montserrat, Roboto Mono, Fira Code) are used    
+     under the SIL Open Font License 1.1.     
+  2. TEXTURES: Patterns from TransparentTextures.com are used according to     
+     their respective attribution guidelines.  
+  3. EXTERNAL MEDIA: GIFs and images sourced via Tenor or Giphy remain the     
+     property of their original copyright holders.  
+  4. AI MODELS: Formatting assistance for the CAELY CHATTER ARRAY was 
+     provided by the Gemma 4 40B model, developed by Google.
+  5. API SERVICES: The `/gif` command functionality is powered by the 
+     Giphy API and is subject to Giphy's API Terms of Service.
+  6. TRADEMARK DISCLAIMER (HOMAGE): The "Cardinal" naming convention for the 
+     backend server and security core is a thematic homage inspired by the 
+     fictional "Cardinal System" from the Sword Art Online series. This project 
+     is an independent, non-commercial work and is not affiliated with, 
+     sponsored by, or endorsed by Reki Kawahara, Kadokawa Corporation, Aniplex, 
+     or the Sword Art Online franchise. All relevant trademarks belong to their 
+     respective owners.
+  7. OPEN-SOURCE DEPENDENCIES: This project relies on various standard 
+     open-source Node.js packages (e.g., Express.js, Socket.io). 
+     These are governed by their respective licenses 
+     (MIT, Apache, etc.) as declared in the project's package.json file.
+  8. API EMULATION: The client-side architecture utilizes a custom-built 
+     bridge script to emulate the "google.script.run" environment. This is 
+     an independent, proprietary routing implementation designed to interface 
+     with the Cardinal backend and is not affiliated with, hosted by, or 
+     endorsed by Google LLC.
+
+  NO SUBLICENSING: You may not sublicense the software or any derivative works.  
+  NO TRANSFER: You may not transfer this license.
+
+===============================================================================
+ 5. DISCLAIMER OF WARRANTIES 
+===============================================================================
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, 
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF 
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. 
+IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY 
+CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, 
+TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE 
+SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+===============================================================================
+ 6. DATA PRIVACY AND SESSION HANDLING
+===============================================================================
+  This software processes and stores minimal user data strictly for the
+  functional purposes of the Cardinal backend and Caely:3 interactions.
+  
+  A. LOCAL DATA VAULT: User data, including session identifiers, chat logs, 
+     and connection IPs, are stored locally or in-memory strictly for session 
+     validation.
+  B. NO COMMERCIAL EXPLOITATION: Under no circumstances is user data sold, 
+     mined for commercial advertising, or transferred to third-party data 
+     brokers. The project respects user privacy and operates entirely on a 
+     non-commercial trust basis.
+
+===============================================================================
+ 7. EXTRA 
+===============================================================================
+  - MOTTO: A chat system that does things differently. Built for friends, 
+    communities, and hobbyists—not for corporations.
+  
+  ["Bleh"] 
+===============================================================================
+*/
+</style> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dochacat:3 | Control Center</title>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico?v=2">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Montserrat:wght@400;700;900&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-base: #030305;
+            --glass-bg: rgba(10, 12, 20, 0.55);
+            --glass-border: rgba(255, 255, 255, 0.08);
+            --glass-highlight: rgba(255, 255, 255, 0.15);
+            --text-main: #f8fafc;
+            --text-muted: #64748b;
+            --accent: #ffb7c5; 
+            --cardinal: #ff4757; 
+            --success: #2ea043;
+            --warning: #f5a623;
+            --brand-purple: #a855f7;
+            --input-bg: rgba(0, 0, 0, 0.6);
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px) scale(1); }
+            50% { transform: translateY(-20px) scale(1.05); }
+            100% { transform: translateY(0px) scale(1); }
+        }
+        @keyframes matrixIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        body { 
+            margin: 0; font-family: 'Inter', sans-serif;
+            background-color: var(--bg-base); color: var(--text-main);
+            height: 100vh; overflow: hidden; display: flex; flex-direction: column;
+            position: relative;
+        }
+
+        body::before {
+            content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 200%;
+            background: linear-gradient(rgba(168, 85, 247, 0.05) 1px, transparent 1px), 
+                        linear-gradient(90deg, rgba(168, 85, 247, 0.05) 1px, transparent 1px);
+            background-size: 50px 50px; z-index: -2; pointer-events: none;
+            transform: perspective(500px) rotateX(60deg) translateY(-100px) translateZ(-200px);
+            animation: float 15s infinite ease-in-out alternate;
+        }
+
+        .ambient-orb {
+            position: absolute; border-radius: 50%; filter: blur(120px); z-index: -1;
+            animation: float 15s infinite ease-in-out alternate; pointer-events: none;
+        }
+        .orb-1 { width: 450px; height: 450px; background: rgba(168, 85, 247, 0.2); top: -100px; left: -100px; }
+        .orb-2 { width: 400px; height: 400px; background: rgba(255, 71, 87, 0.15); bottom: -50px; right: -100px; animation-delay: -5s; }
+
+        .admin-nav {
+            position: relative; z-index: 10; padding: 15px 30px;
+            background: rgba(3, 3, 5, 0.7); border-bottom: 1px solid var(--glass-border);
+            display: flex; justify-content: space-between; align-items: center;
+            backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px);
+            box-shadow: 0 5px 30px rgba(0,0,0,0.5);
+        }
+        .brand-container { display: flex; align-items: center; gap: 15px; }
+        .cattower-logo { font-family: 'Montserrat', sans-serif; font-size: 1.6rem; font-weight: 900; letter-spacing: -1px; text-transform: uppercase; text-shadow: 0 0 10px rgba(255,183,197,0.3); }
+        .cattower-logo .alt-color { color: var(--accent); }
+        .nav-title { font-family: 'Roboto Mono', monospace; color: var(--brand-purple); font-size: 0.9rem; margin-left: 20px; padding-left: 20px; border-left: 1px solid var(--glass-border); text-transform: uppercase; letter-spacing: 2px; }
+        
+        .header-actions { display: flex; gap: 12px; }
+        button { font-family: 'Montserrat', sans-serif; text-transform: uppercase; font-size: 0.8rem; font-weight: 700; border-radius: 8px; cursor: pointer; transition: all 0.3s; letter-spacing: 0.5px; position: relative; overflow: hidden; }
+        
+        .btn-warning { background: rgba(245, 166, 35, 0.1); color: var(--warning); border: 1px solid var(--warning); padding: 10px 20px; }
+        .btn-warning:hover { background: var(--warning); color: #000; box-shadow: 0 0 20px rgba(245, 166, 35, 0.6); transform: translateY(-2px); }
+        .btn-nuke { background: rgba(255, 71, 87, 0.1); color: var(--cardinal); border: 1px solid var(--cardinal); padding: 10px 20px; }
+        .btn-nuke:hover { background: var(--cardinal); color: white; box-shadow: 0 0 30px rgba(255, 71, 87, 0.8); transform: translateY(-2px); }
+
+        .dashboard-container {
+            display: grid; grid-template-columns: 380px 1fr; gap: 25px; padding: 25px; flex: 1; overflow: hidden; z-index: 10;
+        }
+
+        .sidebar { display: flex; flex-direction: column; gap: 20px; overflow-y: auto; padding-right: 10px; }
+        .main-panel { display: flex; flex-direction: column; overflow: hidden; }
+
+        .glass-panel {
+            background: var(--glass-bg); backdrop-filter: blur(30px); -webkit-backdrop-filter: blur(30px);
+            border-radius: 16px; border: 1px solid var(--glass-border); padding: 25px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.6), inset 0 1px 0 var(--glass-highlight);
+            display: flex; flex-direction: column;
+        }
+        .main-panel .glass-panel { flex: 1; overflow: hidden; }
+        
+        .glass-panel h3 { margin: 0 0 20px 0; font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 1.2rem; color: var(--text-main); text-transform: uppercase; display: flex; align-items: center; gap: 10px; }
+        .glass-panel h3::before { content: ''; display: block; width: 10px; height: 10px; background: var(--brand-purple); border-radius: 50%; box-shadow: 0 0 10px var(--brand-purple); }
+
+        .stat-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; font-size: 0.95rem; }
+        .stat-label { color: var(--text-muted); font-weight: 600; }
+        .stat-val { font-family: 'Roboto Mono', monospace; font-weight: bold; color: var(--success); }
+        
+        .input-group { display: flex; gap: 12px; margin-top: 5px; flex-wrap: wrap; }
+        input[type="text"], input[type="password"] {
+            flex: 1; min-width: 150px; padding: 12px 15px; background: var(--input-bg); border: 1px solid var(--glass-border);
+            border-radius: 8px; color: white; font-family: 'Roboto Mono', monospace; outline: none; transition: all 0.3s;
+        }
+        input:focus { border-color: var(--brand-purple); box-shadow: inset 0 2px 4px rgba(0,0,0,0.5), 0 0 10px rgba(168,85,247,0.3); }
+
+        .btn { background: linear-gradient(135deg, var(--brand-purple), #8b5cf6); color: white; border: none; padding: 12px 20px; border-radius: 8px; }
+        .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(168, 85, 247, 0.5); }
+        .btn-small { padding: 8px 12px; font-size: 0.75rem; border-radius: 6px; }
+        .btn-danger { background: rgba(255, 71, 87, 0.1); color: var(--cardinal); border: 1px solid var(--cardinal); }
+        .btn-danger:hover { background: var(--cardinal); color: white; box-shadow: 0 5px 15px rgba(255, 71, 87, 0.4); }
+        .btn-mute { background: rgba(245, 166, 35, 0.1); color: var(--warning); border: 1px solid var(--warning); }
+        .btn-mute:hover { background: var(--warning); color: black; box-shadow: 0 5px 15px rgba(245, 166, 35, 0.4); }
+
+        .toggle-switch {
+            position: relative; width: 44px; height: 24px; appearance: none; background: rgba(0,0,0,0.8); border-radius: 12px; cursor: pointer; border: 1px solid var(--glass-border); transition: 0.4s;
+        }
+        .toggle-switch::after { content: ''; position: absolute; top: 2px; left: 2px; width: 18px; height: 18px; background: #fff; border-radius: 50%; transition: 0.4s; }
+        .toggle-switch:checked { background: var(--success); border-color: var(--success); }
+        .toggle-switch:checked::after { transform: translateX(20px); }
+        .toggle-switch.danger:checked { background: var(--cardinal); border-color: var(--cardinal); }
+
+        .user-matrix { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 15px; align-content: start; overflow-y: auto; padding-right: 15px; flex: 1; }
+        .user-card-wrapper { position: relative; animation: matrixIn 0.4s ease forwards; opacity: 0; }
+        
+        .slim-card {
+            display: flex; align-items: center; gap: 15px; padding: 12px 15px;
+            background: linear-gradient(90deg, rgba(15, 23, 42, 0.6), rgba(5, 5, 10, 0.8));
+            border: 1px solid var(--glass-border); border-radius: 10px; cursor: pointer;
+            transition: all 0.3s ease; box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+        .slim-card:hover { border-color: var(--brand-purple); background: rgba(20, 30, 50, 0.8); transform: translateY(-2px); }
+        .slim-card:active { transform: scale(0.98); }
+        .slim-avatar { width: 40px; height: 40px; border-radius: 8px; object-fit: cover; border: 1px solid var(--glass-highlight); }
+        .slim-info { flex: 1; text-align: left; overflow: hidden; }
+        .slim-name { font-weight: 700; font-size: 0.95rem; color: white; white-space: nowrap; text-overflow: ellipsis; overflow: hidden; }
+        .slim-sub { font-size: 0.7rem; color: var(--text-muted); font-family: 'Roboto Mono', monospace; }
+        
+        .slim-status { font-size: 0.75rem; font-weight: bold; text-align: right; }
+        .status-online { color: var(--success); text-shadow: 0 0 5px rgba(46,160,67,0.5); }
+        .status-offline { color: var(--text-muted); }
+
+        .details-header { display: flex; align-items: center; gap: 20px; margin-bottom: 15px; }
+        .details-avatar { width: 90px; height: 90px; border-radius: 16px; border: 2px solid var(--glass-highlight); object-fit: cover; box-shadow: 0 5px 15px rgba(0,0,0,0.5); flex-shrink: 0; }
+        .details-header > div { flex: 1; min-width: 0; }
+        .details-name { font-weight: 900; font-size: 1.25rem; color: white; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .details-sub { font-size: 0.85rem; color: var(--text-muted); font-family: 'Roboto Mono', monospace; margin-top: 4px; }
+        
+        .details-bio {
+            font-size: 0.85rem; color: var(--text-main); margin-bottom: 20px; font-style: italic; line-height: 1.4;
+            background: rgba(0,0,0,0.4); padding: 12px; border-radius: 8px; border-left: 3px solid var(--brand-purple);
+            word-wrap: break-word; white-space: pre-wrap;
+        }
+
+        .session-list {
+            background: rgba(0,0,0,0.6); border-radius: 8px; padding: 10px; display: flex; flex-direction: column; gap: 8px; border: 1px solid rgba(255,255,255,0.05); max-height: 120px; overflow-y: auto; margin-bottom: 15px;
+        }
+        .session-item {
+            display: flex; justify-content: space-between; align-items: center; font-size: 0.75rem; font-family: 'Roboto Mono', monospace; color: var(--text-muted); background: rgba(255,255,255,0.03); padding: 6px 10px; border-radius: 6px; transition: background 0.2s;
+        }
+        .session-item button { background: none; border: none; color: var(--cardinal); cursor: pointer; font-weight: bold; padding: 4px 8px; border-radius: 4px; }
+        .session-item button:hover { background: var(--cardinal); color: white; }
+        .user-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+
+        .modal-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.8); backdrop-filter: blur(10px); 
+            z-index: 99999; /* Forces modals ABOVE EVERYTHING */
+            display: none; justify-content: center; align-items: center; padding: 20px;
+        }
+        .modal-overlay.active { display: flex; animation: fadeInModal 0.2s ease forwards; }
+        @keyframes fadeInModal { from { opacity: 0; } to { opacity: 1; } }
+
+        .modal-content {
+            background: var(--glass-bg); border: 1px solid var(--glass-highlight); border-radius: 16px;
+            padding: 30px; width: 100%; max-width: 450px; box-shadow: 0 30px 60px rgba(0,0,0,0.9);
+            position: relative;
+        }
+        .modal-content::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 5px; background: linear-gradient(90deg, var(--brand-purple), var(--accent)); }
+        
+        .modal-content h3 { margin-top: 0; color: var(--text-main); margin-bottom: 25px; font-weight: 900; }
+        .form-group { margin-bottom: 20px; text-align: left; }
+        .form-group label { display: block; font-size: 0.85rem; font-weight: 600; color: var(--text-muted); margin-bottom: 8px; text-transform: uppercase; }
+        .form-group input { width: 100%; box-sizing: border-box; }
+        .modal-actions { display: flex; justify-content: flex-end; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: rgba(0,0,0,0.2); border-radius: 4px; }
+        ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.15); border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--brand-purple); }
+    </style>
+</head>
+<body>
+
+<div class="ambient-orb orb-1"></div>
+<div class="ambient-orb orb-2"></div>
+
+<div class="admin-nav">
+    <div class="brand-container">
+        <div class="cattower-logo">CAT<span class="alt-color">TOWER</span></div>
+        <div class="nav-title">SYS_ADMIN CONSOLE</div>
+    </div>
+    <div class="header-actions">
+        <button class="btn-warning" onclick="triggerClearChat()">Clear Chat</button>
+        <button class="btn-nuke" onclick="triggerNukeServer()">Purge Sessions</button>
+    </div>
+</div>
+
+<div class="dashboard-container">
+    
+    <div class="sidebar">
+        <div class="glass-panel">
+            <h3>Server Metrics</h3>
+            <div class="stat-row">
+                <span class="stat-label">Uptime:</span>
+                <span class="stat-val" id="uptime">Loading...</span>
+            </div>
+            <div class="stat-row">
+                <span class="stat-label">Total Valid Tokens:</span>
+                <span class="stat-val" id="active-sessions">0</span>
+            </div>
+        </div>
+
+        <div class="glass-panel">
+            <h3>Configuration</h3>
+            <div class="stat-row">
+                <span class="stat-label">Registration:</span>
+                <input type="checkbox" id="reg-toggle" class="toggle-switch" onchange="toggleSetting('registration')">
+            </div>
+            <div class="stat-row">
+                <span class="stat-label">Global Mute:</span>
+                <input type="checkbox" id="mute-toggle" class="toggle-switch danger" onchange="toggleSetting('mute')">
+            </div>
+            <div class="stat-row">
+                <span class="stat-label">Maintenance Mode:</span>
+                <input type="checkbox" id="maint-toggle" class="toggle-switch danger" onchange="toggleSetting('maintenance')">
+            </div>
+        </div>
+
+        <div class="glass-panel">
+            <h3>Access Control</h3>
+            <div class="stat-row">
+                <span class="stat-label">Current Invite Key:</span>
+                <span class="stat-val" id="current-invite" style="color: var(--accent);">Haha nice try:3</span>
+            </div>
+            <div class="input-group">
+                <input type="text" id="new-invite" placeholder="Set new VIP code...">
+                <button class="btn" onclick="setInvite()">Apply</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="main-panel">
+        <div class="glass-panel">
+            <h3>User Matrix</h3>
+            <div class="user-matrix" id="user-matrix">
+                <div style="color: var(--text-muted); font-size: 0.9rem;">Syncing array...</div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="modal-overlay" id="user-details-modal">
+    <div class="modal-content" style="max-width: 400px;">
+        <div id="details-content-area"></div>
+        <div class="modal-actions" style="margin-top: 10px;">
+            <button class="btn" style="width: 100%; background: rgba(255,255,255,0.1); color: white;" onclick="closeModalById('user-details-modal')">Close Details</button>
+        </div>
+    </div>
+</div>
+
+<div class="modal-overlay" id="confirm-modal">
+    <div class="modal-content">
+        <h3 id="confirm-title">Confirm Action</h3>
+        <p id="confirm-text" style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 25px; line-height: 1.5;"></p>
+        <div class="modal-actions">
+            <button class="btn" style="background: rgba(255,255,255,0.1); color: white;" onclick="closeModalById('confirm-modal')">Cancel</button>
+            <button id="confirm-btn" class="btn" onclick="executeConfirm()">Proceed</button>
+        </div>
+    </div>
+</div>
+
+<div class="modal-overlay" id="profile-modal">
+    <div class="modal-content">
+        <h3>Edit User Profile</h3>
+        <input type="hidden" id="edit-original-username">
+        <div class="form-group">
+            <label>Target Username (Locked)</label>
+            <input type="text" id="edit-user" disabled style="opacity: 0.5; cursor: not-allowed;">
+        </div>
+        <div class="form-group">
+            <label>Display Nickname</label>
+            <input type="text" id="edit-nick">
+        </div>
+        <div class="form-group">
+            <label>Avatar URL</label>
+            <input type="text" id="edit-pfp">
+        </div>
+        <div class="form-group">
+            <label>Biography</label>
+            <input type="text" id="edit-bio">
+        </div>
+        <div class="modal-actions">
+            <button class="btn btn-danger" onclick="closeModalById('profile-modal')">Cancel</button>
+            <button class="btn" onclick="saveProfile()">Save Changes</button>
+        </div>
+    </div>
+</div>
+
+<div class="modal-overlay" id="reset-modal">
+    <div class="modal-content">
+        <h3 style="color: var(--cardinal);">Password Reset Success</h3>
+        <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 25px; line-height: 1.5;">
+            The password for <strong id="reset-target-name" style="color: white;">User</strong> has been randomized. Active sessions terminated.
+        </p>
+        <div class="form-group">
+            <label>New Temporary Password (Copy this)</label>
+            <input type="text" id="reset-new-pass" readonly style="font-size: 1.3rem; color: var(--cardinal); text-align: center; font-weight: bold; background: rgba(255, 71, 87, 0.05); border-color: var(--cardinal);">
+        </div>
+        <div class="modal-actions">
+            <button class="btn" onclick="closeModalById('reset-modal')">Dismiss</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    window.adminUserCache = [];
+    window.currentViewingUser = null; 
+    let activeConfirmCallback = null; 
+
+    function escapeHTML(str) {
+        if (!str) return '';
+        return str.replace(/[&<>'"]/g, tag => ({
+            '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;'
+        }[tag]));
+    }
+
+    function formatUptime(totalSeconds) {
+        if (isNaN(totalSeconds)) return "Loading...";
+        let s = Math.floor(totalSeconds);
+        let w = Math.floor(s / 604800); s %= 604800;
+        let d = Math.floor(s / 86400); s %= 86400;
+        let h = Math.floor(s / 3600); s %= 3600;
+        let m = Math.floor(s / 60); s %= 60;
+        
+        let parts = [];
+        if(w > 0) parts.push(`${w}w`);
+        if(d > 0) parts.push(`${d}d`);
+        if(h > 0) parts.push(`${h}h`);
+        if(m > 0) parts.push(`${m}m`);
+        parts.push(`${s}s`);
+        return parts.join(' ');
+    }
+
+    function closeModalById(modalId) {
+        document.getElementById(modalId).classList.remove('active');
+        if (modalId === 'user-details-modal') window.currentViewingUser = null;
+    }
+
+    function openConfirmModal(title, text, type, callback) {
+        document.getElementById('confirm-title').innerText = title;
+        document.getElementById('confirm-text').innerText = text;
+        
+        const btn = document.getElementById('confirm-btn');
+        if (type === 'danger') {
+            btn.className = 'btn btn-nuke';
+            document.getElementById('confirm-title').style.color = 'var(--cardinal)';
+        } else if (type === 'warning') {
+            btn.className = 'btn btn-warning';
+            document.getElementById('confirm-title').style.color = 'var(--warning)';
+        } else {
+            btn.className = 'btn';
+            document.getElementById('confirm-title').style.color = 'var(--text-main)';
+        }
+
+        activeConfirmCallback = callback;
+        document.getElementById('confirm-modal').classList.add('active');
+    }
+
+    function executeConfirm() {
+        if(activeConfirmCallback) activeConfirmCallback();
+        closeModalById('confirm-modal');
+    }
+
+    async function fetchStatus() {
+        try {
+            const res = await fetch('/api/admin/status');
+            const data = await res.json();
+            
+            document.getElementById('reg-toggle').checked = data.registrationOpen;
+            document.getElementById('mute-toggle').checked = data.globalMute || false;
+            document.getElementById('maint-toggle').checked = data.maintenanceMode || false;
+            
+            document.getElementById('uptime').innerText = formatUptime(data.uptime);
+            document.getElementById('active-sessions').innerText = data.activeSessions || 0;
+            document.getElementById('current-invite').innerText = data.inviteKey || (data.inviteSet ? "HIDDEN (SET)" : "NONE");
+
+            fetchUsers();
+        } catch (e) {}
+    }
+
+    async function fetchUsers() {
+        try {
+            const resUsers = await fetch('/api/admin/users');
+            if (!resUsers.ok) throw new Error("Endpoint missing");
+            const users = await resUsers.json();
+            
+            window.adminUserCache = users; 
+            renderUserMatrix(users);
+        } catch (e) {
+            const mockUsers = [
+                { username: "idavidal", nickname: "idavidal", pfp: "https://ui-avatars.com/api/?name=I&background=random", bio: "Testing perfectly locked DOM Diffing!", isOnline: true, isMuted: true, sessions: [{ id: "sess_x12", ip: "192.168.1.10", time: "10:35 AM" }] },
+                { username: "System", nickname: "CARDINAL", pfp: "https://ui-avatars.com/api/?name=Sys&background=ff4757&color=fff", bio: "Automated System.", isOnline: true, isMuted: false, sessions: [{ id: "sess_x9f2", ip: "127.0.0.1", time: "10:20 AM" }] }
+            ];
+            window.adminUserCache = mockUsers;
+            renderUserMatrix(mockUsers);
+        }
+    }
+
+    function renderUserMatrix(users) {
+        const matrix = document.getElementById('user-matrix');
+        if (matrix.innerHTML.includes('Syncing array...')) matrix.innerHTML = '';
+        
+        const currentCardIds = new Set(Array.from(matrix.children).map(el => el.id));
+        const newCardIds = new Set(users.map(u => `wrapper-${u.username}`));
+
+        currentCardIds.forEach(id => {
+            if (!newCardIds.has(id)) {
+                const el = document.getElementById(id);
+                if (el) el.remove();
+            }
+        });
+        
+        users.forEach((u, index) => {
+            const statusClass = u.isOnline ? 'status-online' : 'status-offline';
+            const statusText = u.isOnline ? '● Online' : '○ Offline';
+            const safePfp = u.pfp || 'https://ui-avatars.com/api/?name=' + u.username;
+            const safeNick = escapeHTML(u.nickname || u.username);
+
+            const userHash = JSON.stringify(u);
+
+            const cardContent = `
+                <div class="slim-card" onclick="openUserDetails('${u.username}')">
+                    <img src="${safePfp}" class="slim-avatar">
+                    <div class="slim-info">
+                        <div class="slim-name">${safeNick}</div>
+                        <div class="slim-sub">@${u.username}</div>
+                    </div>
+                    <div class="slim-status">
+                        <div class="${statusClass}">${statusText}</div>
+                    </div>
+                </div>
+            `;
+            
+            const wrapperId = `wrapper-${u.username}`;
+            let wrapperEl = document.getElementById(wrapperId);
+            
+            if (wrapperEl) {
+                if (wrapperEl.getAttribute('data-hash') !== userHash) {
+                    wrapperEl.innerHTML = cardContent;
+                    wrapperEl.setAttribute('data-hash', userHash);
+                }
+            } else {
+                wrapperEl = document.createElement('div');
+                wrapperEl.className = 'user-card-wrapper';
+                wrapperEl.id = wrapperId;
+                wrapperEl.style.animationDelay = `${index * 0.05}s`; 
+                wrapperEl.setAttribute('data-hash', userHash);
+                wrapperEl.innerHTML = cardContent;
+                matrix.appendChild(wrapperEl);
+            }
+        });
+
+        if (window.currentViewingUser && document.getElementById('user-details-modal').classList.contains('active')) {
+            openUserDetails(window.currentViewingUser);
+        }
+    }
+
+    function openUserDetails(username) {
+        const u = window.adminUserCache.find(x => x.username === username);
+        if(!u) {
+            closeModalById('user-details-modal');
+            return;
+        }
+
+        const contentArea = document.getElementById('details-content-area');
+        const userHash = JSON.stringify(u);
+
+        if (window.currentViewingUser === username && contentArea.getAttribute('data-hash') === userHash) {
+            return; 
+        }
+
+        window.currentViewingUser = username;
+
+        const statusClass = u.isOnline ? 'status-online' : 'status-offline';
+        const statusText = u.isOnline ? '● Online' : '○ Offline';
+        const safePfp = u.pfp || 'https://ui-avatars.com/api/?name=' + u.username;
+        const safeNick = escapeHTML(u.nickname || u.username);
+        const safeBio = escapeHTML(u.bio || "No bio yet.");
+
+        let sessionsHtml = '';
+        if (u.sessions && u.sessions.length > 0) {
+            sessionsHtml = `<div class="session-list">`;
+            u.sessions.forEach(sess => {
+                sessionsHtml += `
+                    <div class="session-item" id="chip-${sess.id}">
+                        <span>${sess.ip} (${sess.time})</span>
+                        <button onclick="killSingleSession('${u.username}', '${sess.id}')" title="Kill Session">✖</button>
+                    </div>
+                `;
+            });
+            sessionsHtml += `</div>`;
+        } else {
+            sessionsHtml = `<div class="session-list" style="color: var(--text-muted); text-align: center; justify-content: center; background: rgba(0,0,0,0.3);">No active connections</div>`;
+        }
+
+        const detailsHtml = `
+            <div class="details-header">
+                <img src="${safePfp}" class="details-avatar">
+                <div>
+                    <div class="details-name">${safeNick}</div>
+                    <div class="details-sub">@${u.username} | <span class="${statusClass}">${statusText}</span></div>
+                </div>
+            </div>
+            
+            <div class="details-bio">"${safeBio}"</div>
+            
+            ${sessionsHtml}
+
+            <div class="user-actions" style="margin-bottom: 20px;">
+                <button class="btn btn-small" onclick="openProfileModal('${u.username}')">Edit</button>
+                <button class="btn btn-small btn-mute" ${u.isMuted ? 'style="background:var(--success); color:white; border:none;"' : ''} onclick="triggerToggleMute('${u.username}', ${u.isMuted})">${u.isMuted ? 'Unmute' : 'Mute'}</button>
+                <button class="btn btn-small btn-danger" onclick="triggerKickUser('${u.username}')">Kick</button>
+                <button class="btn btn-small btn-danger" onclick="triggerResetUser('${u.username}')">Reset</button>
+                <button class="btn btn-small btn-danger" style="background:var(--cardinal); color:white; border:none;" onclick="triggerDeleteUser('${u.username}')">Delete</button>
+            </div>
+        `;
+
+        contentArea.innerHTML = detailsHtml;
+        contentArea.setAttribute('data-hash', userHash);
+        document.getElementById('user-details-modal').classList.add('active');
+    }
+
+    async function toggleSetting(type) {
+        let isChecked, endpoint;
+        if(type === 'registration') {
+            isChecked = document.getElementById('reg-toggle').checked;
+            endpoint = '/api/admin/lockdown';
+        } else if (type === 'mute') {
+            isChecked = document.getElementById('mute-toggle').checked;
+            endpoint = '/api/admin/global-mute';
+        } else if (type === 'maintenance') {
+            isChecked = document.getElementById('maint-toggle').checked;
+            endpoint = '/api/admin/maintenance';
+        }
+        try { await fetch(endpoint, { method: 'POST', body: JSON.stringify({ state: isChecked }), headers: {'Content-Type':'application/json'} }); } 
+        catch (e) {}
+    }
+
+    async function setInvite() {
+        const newInvite = document.getElementById('new-invite').value;
+        try {
+            await fetch('/api/admin/invite', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ newInvite }) });
+            document.getElementById('new-invite').value = '';
+            document.getElementById('current-invite').innerText = newInvite || "NONE";
+        } catch (e) { }
+    }
+
+    function triggerClearChat() {
+        openConfirmModal("Clear Chat History", "Are you absolutely sure you want to permanently delete all messages? This cannot be undone.", "warning", async () => {
+            try { await fetch('/api/admin/clear-chat', { method: 'POST' }); } catch (e) {}
+        });
+    }
+
+    function triggerNukeServer() {
+        openConfirmModal("Purge All Sessions", "CRITICAL: This will instantly destroy all session tokens from RAM, kicking EVERYONE out. Proceed?", "danger", async () => {
+            try { await fetch('/api/admin/nuke', { method: 'POST' }); fetchStatus(); } catch (e) {} // NUKE INCOMEING AHAHHHHHHHHHHH
+        });
+    }
+
+    function triggerToggleMute(username, currentlyMuted) {
+        const action = currentlyMuted ? 'Unmute' : 'Mute';
+        openConfirmModal(`${action} User`, `Are you sure you want to ${action.toLowerCase()} @${username}?`, "warning", async () => {
+            try { await fetch('/api/admin/mute-user', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ targetUser: username }) }); fetchUsers(); } catch (e) {}
+        });
+    }
+
+    async function killSingleSession(username, sessionId) {
+        try {
+            await fetch('/api/admin/kill-session', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ sessionId }) });
+            fetchUsers();
+        } catch (e) {}
+    }
+
+    function triggerKickUser(username) {
+        openConfirmModal("Kick User", `Force disconnect ALL active sessions for @${username}?`, "warning", async () => {
+            try { await fetch('/api/admin/kick', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ targetUser: username }) }); fetchUsers(); } catch (e) {}
+        });
+    }
+
+    function triggerResetUser(username) {
+        openConfirmModal("Reset User Password", `OVERWRITE password for @${username}? They will be locked out and their sessions terminated.`, "danger", async () => {
+            try {
+                const res = await fetch('/api/admin/reset-user', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ targetUser: username }) });
+                const data = await res.json();
+                if(data.success) {
+                    document.getElementById('reset-target-name').innerText = username;
+                    document.getElementById('reset-new-pass').value = data.newPassword;
+                    document.getElementById('reset-modal').classList.add('active');
+                }
+            } catch (e) { 
+                document.getElementById('reset-target-name').innerText = username;
+                document.getElementById('reset-new-pass').value = "mock_pass_" + Math.floor(Math.random()*1000);
+                document.getElementById('reset-modal').classList.add('active');
+            }
+        });
+    }
+
+    function triggerDeleteUser(username) {
+        openConfirmModal("Delete Account", `DANGER: Are you absolutely sure you want to PERMANENTLY DELETE the account @${username}?`, "danger", async () => {
+            try { await fetch('/api/admin/delete-user', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ targetUser: username }) }); fetchUsers(); closeModalById('user-details-modal'); } catch (e) {}
+        });
+    }
+
+    function openProfileModal(username) {
+        const targetUser = window.adminUserCache.find(u => u.username === username);
+        if(!targetUser) return;
+
+        document.getElementById('edit-original-username').value = targetUser.username;
+        document.getElementById('edit-user').value = targetUser.username;
+        document.getElementById('edit-nick').value = targetUser.nickname || '';
+        document.getElementById('edit-pfp').value = targetUser.pfp || '';
+        document.getElementById('edit-bio').value = targetUser.bio || '';
+        
+        document.getElementById('profile-modal').classList.add('active');
+    }
+
+    async function saveProfile() {
+        const targetUser = document.getElementById('edit-original-username').value;
+        const nickname = document.getElementById('edit-nick').value;
+        const pfp = document.getElementById('edit-pfp').value;
+        const bio = document.getElementById('edit-bio').value;
+
+        try { await fetch('/api/admin/edit-user', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ targetUser, nickname, pfp, bio }) }); } 
+        catch (e) {}
+        
+        closeModalById('profile-modal');
+        fetchUsers();
+    }
+
+    setInterval(fetchStatus, 1000); 
+    fetchStatus();
+
+</script>
+</body>
+</html>

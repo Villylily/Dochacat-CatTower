@@ -1,0 +1,734 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>
+    <style>    
+/*
+DOCHACAT:3 | CATTOWER | CARDINAL
+COPYRIGHT (C) 2026 (VILLYLILY) ALL RIGHTS RESERVED.
+===============================================================================
+ 1. PROPRIETARY ASSETS AND INTELLECTUAL PROPERTY 
+===============================================================================
+  The Author hereby reserves all intellectual property rights to the 
+following "Defined Assets" contained within this repository:  
+
+  A. BRANDING: The "Dochacat:3" brand, the "CatTower" project name, and all  
+     associated visual identifiers, including but not limited to SVG-based
+     logos, animations (sync-pulse, core-rotate, led-blink), and UI layouts.  
+  B. CARDINAL SECURITY CORE: The specific source code implementation of the     
+     "Gatekeeper" middleware, session validation logic, adminOnly network     
+     restriction logic, and high-fidelity 510kbps WebRTC audio SDP injection.  
+  C. CAELY:3 CHARACTER IDENTITY: The name, visual design (specifically     
+     long-haired traits), and the "Synthetic Entity" personality matrix 
+     were created by the Author (Villylily). Caely:3 is a CLUSTRARS model.  
+  D. CAELY CHATTER ARRAY: The unique collection of 100+ dialogue strings     
+     contained within the source code, including all AI-generated and     
+     Author-curated meta-commentary responses. These lines were generated 
+     using the CLUSTRARS model and formatted using Gemma 4 40B.
+  E. FRONT-END ARCHITECTURE: All structural HTML files, proprietary 
+     client-side logic, and specific user interface arrangements and 
+     mechanics found within the client directories of this repository.
+  F. CARDINAL BACKEND SERVER ARCHITECTURE: The complete server-side infrastructure, 
+     operating under the "Cardinal" designation, including the Express.js API 
+     routing, Socket.io WebSocket implementations, in-memory caching systems, 
+     and local data-vault storage logic.
+
+===============================================================================
+ 2. THE CLUSTRARS ARCHITECTURE (STRICTLY PROPRIETARY)
+===============================================================================
+  (CLUSTER LLM UNIT SYSTEM TO RECALCULATE AND RETRAIN SimpleLily)
+  LICENSE: STRICTLY PROPRIETARY - ALL RIGHTS RESERVED - NON-RECREATABLE
+  NOTICE: THE CLUSTRARS SYSTEM IS CLOSED SOURCE AND IS NOT LICENSABLE.
+  PERMISSIONS GRANTED FOR CONTENT (SECTION 1 & 3) DO NOT EXTEND TO THE
+  RECREATION OR REPLICATION OF THE CLUSTRARS SYSTEM ARCHITECTURE.
+
+  A. CORE ENGINE: CLUSTRARS powers the "SimpleLily" entity, utilizing a 30TB
+     proprietary model. This system stores personality data, emotional weights,
+     and persistent memories in a raw data format.
+  B. DYNAMIC RESPONSE PROTOCOL: Every interaction utilizes a "Smaller Context AI"
+     to selectively retrieve relevant data from the 30TB core. This context is
+     used to train a unique, single-instance model for each response.
+  C. VOLATILE MODELING: To ensure fluid, life-like evolution and precision, each
+     retrained response model is deleted immediately after execution,
+     ensuring the entity's "memory" remains housed in the raw data cluster
+     rather than a static weight set.
+  D. SYSTEM RESTRICTION: The methodology of just-in-time model training,
+     the 30TB raw data memory structure, and the recalculation logic are
+     strictly proprietary. Re-creation of this architecture is prohibited.
+
+===============================================================================
+ 3. POLYFORM NONCOMMERCIAL LICENSE 1.0.0 & CONTENT PERMISSIONS
+===============================================================================
+  This software and the associated CAELY:3 Synthetic Identity & Content are 
+licensed under the PolyForm Noncommercial License 1.0.0 (OPEN FOR NON-COMMERCIAL USE).  
+  (For the full text of this license, visit: https://polyformproject.org/licenses/noncommercial/1.0.0/)
+
+  ACCEPTANCE: By using this software, you agree to all its terms. 
+ 
+  CAELY CONTENT PERMISSION: Users are permitted to copy, use, and distribute 
+  the CAELY CHATTER ARRAY strings for personal, educational, or group use, 
+  provided no monetary compensation is involved.
+
+  NONCOMMERCIAL RIGHT: The licensor grants you a non-exclusive, worldwide, 
+royalty-free, non-sublicensable, and non-transferable license to use, copy, 
+distribute, make available, and prepare derivative works of the software for  
+NONCOMMERCIAL PURPOSES ONLY.  
+
+  NONCOMMERCIAL PURPOSES: Noncommercial purposes are any purposes that are
+not "commercial purposes."  "Commercial purposes" means the use of the 
+software: 
+  1. For a commercial advantage or private monetary compensation; 
+  2. By any person or entity that provides a service or product that     
+     competes with the software; or 
+  3. By any person or entity for use in a commercial product.  
+
+-------------------------------------------------------------------------------
+ 4. THIRD-PARTY ASSETS & ATTRIBUTION 
+-------------------------------------------------------------------------------
+  This project utilizes external assets governed by their own licenses:  
+  1. FONTS: Google Fonts (Montserrat, Roboto Mono, Fira Code) are used    
+     under the SIL Open Font License 1.1.     
+  2. TEXTURES: Patterns from TransparentTextures.com are used according to     
+     their respective attribution guidelines.  
+  3. EXTERNAL MEDIA: GIFs and images sourced via Tenor or Giphy remain the     
+     property of their original copyright holders.  
+  4. AI MODELS: Formatting assistance for the CAELY CHATTER ARRAY was 
+     provided by the Gemma 4 40B model, developed by Google.
+  5. API SERVICES: The `/gif` command functionality is powered by the 
+     Giphy API and is subject to Giphy's API Terms of Service.
+  6. TRADEMARK DISCLAIMER (HOMAGE): The "Cardinal" naming convention for the 
+     backend server and security core is a thematic homage inspired by the 
+     fictional "Cardinal System" from the Sword Art Online series. This project 
+     is an independent, non-commercial work and is not affiliated with, 
+     sponsored by, or endorsed by Reki Kawahara, Kadokawa Corporation, Aniplex, 
+     or the Sword Art Online franchise. All relevant trademarks belong to their 
+     respective owners.
+  7. OPEN-SOURCE DEPENDENCIES: This project relies on various standard 
+     open-source Node.js packages (e.g., Express.js, Socket.io). 
+     These are governed by their respective licenses 
+     (MIT, Apache, etc.) as declared in the project's package.json file.
+  8. API EMULATION: The client-side architecture utilizes a custom-built 
+     bridge script to emulate the "google.script.run" environment. This is 
+     an independent, proprietary routing implementation designed to interface 
+     with the Cardinal backend and is not affiliated with, hosted by, or 
+     endorsed by Google LLC.
+
+  NO SUBLICENSING: You may not sublicense the software or any derivative works.  
+  NO TRANSFER: You may not transfer this license.
+
+===============================================================================
+ 5. DISCLAIMER OF WARRANTIES 
+===============================================================================
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, 
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF 
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. 
+IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY 
+CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, 
+TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE 
+SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+===============================================================================
+ 6. DATA PRIVACY AND SESSION HANDLING
+===============================================================================
+  This software processes and stores minimal user data strictly for the
+  functional purposes of the Cardinal backend and Caely:3 interactions.
+  
+  A. LOCAL DATA VAULT: User data, including session identifiers, chat logs, 
+     and connection IPs, are stored locally or in-memory strictly for session 
+     validation.
+  B. NO COMMERCIAL EXPLOITATION: Under no circumstances is user data sold, 
+     mined for commercial advertising, or transferred to third-party data 
+     brokers. The project respects user privacy and operates entirely on a 
+     non-commercial trust basis.
+
+===============================================================================
+ 7. EXTRA 
+===============================================================================
+  - MOTTO: A chat system that does things differently. Built for friends, 
+    communities, and hobbyists—not for corporations.
+  
+  ["Bleh"] 
+===============================================================================
+*/
+</style> 
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>Dochacat:3 | Audio Call</title>  
+    <link rel="icon" type="image/x-icon" href="/favicon.ico?v=2">  
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Montserrat:wght@400;700;900&family=Roboto+Mono&display=swap" rel="stylesheet">  
+    <script src="/socket.io/socket.io.js"></script>  
+    <style>  
+        :root {  
+            --bg-base: #050505;  
+            --glass-bg: rgba(15, 23, 42, 0.4);  
+            --glass-border: rgba(255, 255, 255, 0.1);  
+            --text-main: #f8fafc;  
+            --text-muted: #94a3b8;  
+            --accent: #ffb7c5;  
+            --cardinal: #ff4757;  
+            --success: #2ea043;  
+            --brand-purple: #a855f7;  
+            --brand-purple-hover: #c084fc;  
+        }  
+
+        body {  
+            margin: 0; font-family: 'Inter', sans-serif;  
+            background-color: var(--bg-base); color: var(--text-main);  
+            height: 100vh; overflow: hidden; display: flex; flex-direction: column;  
+        }  
+
+        .ambient-orb {  
+            position: absolute; border-radius: 50%; filter: blur(100px); z-index: 0;  
+            animation: float 20s infinite ease-in-out alternate; pointer-events: none;  
+        }  
+        .orb-1 { width: 400px; height: 400px; background: rgba(168, 85, 247, 0.15); top: -100px; left: -100px; }  
+
+        .orb-2 { width: 350px; height: 350px; background: rgba(255, 71, 87, 0.1); bottom: -50px; right: -50px; animation-delay: -5s; }  
+
+        body::before {  
+            content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%;  
+            background: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),  
+                        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);  
+            background-size: 40px 40px; z-index: 1; pointer-events: none;  
+        }  
+
+        .call-header {  
+            position: relative; z-index: 10; padding: 10px 30px;  
+            background: rgba(5, 5, 5, 0.6); border-bottom: 1px solid var(--glass-border);  
+            display: flex; justify-content: space-between; align-items: center; backdrop-filter: blur(10px);  
+        }  
+
+        .logo-lockup { display: flex; flex-direction: column; align-items: flex-start; gap: 2px; }  
+        .engine-overline {  
+            font-family: 'Montserrat', sans-serif; font-size: 0.55rem; font-weight: 400;  
+            letter-spacing: 6px; color: var(--text-muted); opacity: 0.6; text-transform: uppercase;  
+            padding-left: 2px; margin-bottom: 2px;  
+        }  
+        .brand-row { display: flex; align-items: center; gap: 10px; }  
+        .cattower-logo {  
+            font-family: 'Montserrat', sans-serif; font-size: 1.5rem;  
+            font-weight: 900; line-height: 0.85; letter-spacing: -1px; text-transform: uppercase;  
+        }  
+        .cattower-logo .alt-color { color: var(--accent); text-shadow: 0 0 15px rgba(255, 183, 197, 0.3); }  
+
+        .room-info { font-family: 'Roboto Mono', monospace; font-size: 0.9rem; color: var(--success); display: flex; align-items: center; gap: 10px; }  
+
+        .rec-dot { width: 10px; height: 10px; background: var(--cardinal); border-radius: 50%; animation: pulse 1.5s infinite; }  
+
+        @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(255, 71, 87, 0.7); } 70% { box-shadow: 0 0 0 10px rgba(255, 71, 87, 0); } 100% { box-shadow: 0 0 0 0 rgba(255, 71, 87, 0); } }  
+
+        .user-container {  
+            flex: 1; position: relative; z-index: 5; padding: 20px;  
+            display: flex; flex-wrap: wrap; gap: 20px;  
+            align-items: center; justify-content: center; align-content: center; overflow-y: auto;  
+        }  
+        
+        .user-wrapper {  
+            position: relative;  
+            width: 280px; max-width: 100%; aspect-ratio: 1/1; background: #111;  
+            border-radius: 12px; border: 2px solid var(--glass-border); overflow: hidden;  
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4); transition: border-color 0.2s, box-shadow 0.2s;  
+            display: flex; align-items: center; justify-content: center;  
+        }  
+
+        .user-wrapper.is-speaking {  
+            border-color: var(--brand-purple);  
+            box-shadow: 0 0 0 4px rgba(168, 85, 247, 0.3), 0 0 20px var(--brand-purple);  
+        }  
+        
+        .user-label {  
+            position: absolute; bottom: 10px; left: 10px; background: rgba(0,0,0,0.6);  
+            padding: 4px 10px; border-radius: 6px; font-size: 0.8rem; backdrop-filter: blur(5px);  
+            z-index: 2;  
+        }  
+
+        .avatar-img { width: 120px; height: 120px; border-radius: 50%; box-shadow: 0 4px 15px rgba(0,0,0,0.5); object-fit: cover;}  
+
+        .mute-indicator {  
+            position: absolute; top: 10px; right: 10px;  
+            background: rgba(255, 71, 87, 0.85); color: white;  
+            padding: 8px; border-radius: 50%; display: flex;  
+            align-items: center; justify-content: center; z-index: 3;  
+            backdrop-filter: blur(4px); box-shadow: 0 4px 10px rgba(0,0,0,0.3);  
+            opacity: 0; transform: scale(0.8); transition: all 0.2s;  
+        }  
+        
+        .user-wrapper.is-muted .mute-indicator { opacity: 1; transform: scale(1); }  
+
+        .controls-wrapper { position: relative; z-index: 10; padding: 20px; display: flex; justify-content: center; }  
+        .controls-bar {  
+            background: var(--glass-bg); backdrop-filter: blur(20px); border: 1px solid var(--glass-border);  
+            padding: 10px; border-radius: 12px; display: flex; gap: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);  
+        }  
+        .ctrl-btn {  
+            height: 45px; padding: 0 20px; border-radius: 8px; border: 1px solid var(--glass-border); cursor: pointer;  
+            background: rgba(255,255,255,0.05); color: white; font-size: 0.85rem; font-family: 'Roboto Mono', monospace; font-weight: bold;  
+            transition: all 0.2s; display: flex; align-items: center; justify-content: center; letter-spacing: 1px;  
+        }  
+        .ctrl-btn:hover { background: rgba(255,255,255,0.15); transform: translateY(-2px); }  
+
+        .ctrl-btn.off { background: rgba(255, 71, 87, 0.1); color: var(--cardinal); border: 1px solid var(--cardinal); text-decoration: line-through; }  
+
+        .btn-leave { background: var(--cardinal); color: white; border: none; padding: 0 30px; font-family: 'Montserrat', sans-serif; }  
+        .btn-leave:hover { background: #ff2a3f; box-shadow: 0 0 15px rgba(255, 71, 87, 0.5); }  
+
+        .modal-overlay {  
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;  
+            background: rgba(0,0,0,0.6); backdrop-filter: blur(5px); z-index: 100;  
+            display: none; justify-content: center; align-items: center;  
+        }  
+        .modal-overlay.active { display: flex; animation: fadeIn 0.2s ease; }  
+        .modal-content {  
+            background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: 12px;  
+            padding: 25px; width: 100%; max-width: 500px; box-shadow: 0 20px 50px rgba(0,0,0,0.8);  
+            max-height: 80vh; overflow-y: auto;  
+        }  
+        @keyframes fadeIn { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }  
+        
+        .modal-content h3 { margin-top: 0; color: var(--accent); margin-bottom: 20px; border-bottom: 1px solid var(--glass-border); padding-bottom: 10px;}  
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }  
+        .form-group { margin-bottom: 15px; }  
+
+        .form-group label { display: block; font-size: 0.8rem; color: var(--text-muted); margin-bottom: 5px; font-weight: bold; }  
+        select {  
+            width: 100%; padding: 10px; background: rgba(0,0,0,0.5); border: 1px solid var(--glass-border);  
+            border-radius: 6px; color: white; font-family: 'Inter', sans-serif; outline: none; box-sizing: border-box;  
+        }  
+        select:focus { border-color: var(--brand-purple); }  
+        .modal-actions { display: flex; justify-content: flex-end; gap: 10px; margin-top: 20px; }  
+
+        .btn-close-modal { background: transparent; color: white; border: 1px solid var(--glass-border); padding: 8px 16px; border-radius: 6px; cursor: pointer; }  
+
+        .btn-save { background: var(--brand-purple); color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; font-weight: bold; font-family: 'Montserrat', sans-serif; }  
+    </style>  
+</head>  
+<body>  
+
+<div class="ambient-orb orb-1"></div>  
+<div class="ambient-orb orb-2"></div>  
+
+<div class="call-header">  
+    <div class="logo-lockup">  
+        <div class="engine-overline">Dochacat:3</div>  
+        <div class="brand-row">  
+            <div class="cattower-logo">CAT<span class="alt-color">TOWER</span></div>  
+        </div>  
+    </div>  
+    <div class="room-info">  
+        <div class="rec-dot"></div>  
+        Room: <span id="room-id-display">CONNECTING...</span>  
+    </div>  
+</div>  
+
+<div class="user-container" id="user-grid">  
+    <div class="user-wrapper" id="local-user-wrapper">  
+        <div class="mute-indicator" id="local-mute-indicator">  
+
+            <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">  
+                <line x1="1" y1="1" x2="23" y2="23"></line>  
+                <path d="M9 9v3a3 3 0 0 0 5.12 2.12M15 9.34V4a3 3 0 0 0-5.94-.6"></path>  
+                <path d="M17 16.95A7 7 0 0 1 5 12H3a9 9 0 0 0 11.5 8.8l-1.5-1.85z"></path>  
+                <path d="M21 12c0 1.5-.4 2.9-1.06 4.1l-1.65-1.65A4.98 4.98 0 0 0 19 12h2z"></path>  
+            </svg>  
+        </div>  
+        <audio id="local-audio" autoplay muted playsinline></audio>  
+        <img id="local-avatar-img" src="" class="avatar-img">  
+        <div class="user-label" id="local-name-label">You</div>  
+    </div>  
+</div>  
+
+<div class="controls-wrapper">  
+    <div class="controls-bar">  
+        <button class="ctrl-btn" id="btn-mic" onclick="toggleMic()">MIC</button>  
+        <button class="ctrl-btn" onclick="openSettings()">Settings</button>  
+        <button class="ctrl-btn btn-leave" onclick="leaveCall()">LEAVE</button>  
+    </div>  
+</div>  
+
+<div class="modal-overlay" id="settings-modal">  
+    <div class="modal-content">  
+        <h3>Settings</h3>  
+        
+        <div class="form-group">  
+            <label>MICROPHONE INPUT</label>  
+            <select id="mic-select"></select>  
+        </div>  
+
+        <div class="form-group">  
+            <label>AUDIO QUALITY</label>  
+            <select id="quality-select">  
+                <option value="ultra"selected>Raw</option>  
+                <option value="high">Hi-Fi Audio (HIGH)</option>  
+                <option value="medium">Std Audio (STD)</option>  
+                <option value="low">Low Audio (LOW)</option>  
+            </select>  
+        </div>  
+
+        <div class="form-row">  
+            <div class="form-group">  
+                <label>NOISE SUPPRESSION</label>  
+                <select id="noise-select">  
+                    <option value="true">ON</option>  
+                    <option value="false" selected>OFF (Raw Mic)</option>  
+                </select>  
+            </div>  
+            <div class="form-group">  
+                <label>ECHO CANCELLATION</label>  
+                <select id="echo-select">  
+                    <option value="true">ON</option>  
+                    <option value="false" selected>OFF (Studio setup)</option>  
+                </select>  
+            </div>  
+        </div>  
+        <div class="form-group">  
+            <label>AUTO GAIN CONTROL</label>  
+            <select id="gain-select">  
+                <option value="true" selected>ON (Auto volume adjustment)</option>  
+                <option value="false">OFF (Manual levels)</option>  
+            </select>  
+        </div>  
+        
+        <div class="modal-actions">  
+            <button class="btn-close-modal" onclick="closeSettings()">CANCEL</button>  
+            <button class="btn-save" onclick="applySettings()">APPLY CHANGES</button>  
+        </div>  
+    </div>  
+</div>  
+
+<script>  
+    const socket = io();  
+    const userGrid = document.getElementById('user-grid');  
+    
+    const pathParts = window.location.pathname.split('/');  
+    const roomId = pathParts[pathParts.length - 1] || 'general';  
+    document.getElementById('room-id-display').innerText = roomId.toUpperCase();  
+
+    let localStream;  
+    let isLocalMuted = false;  
+    let peers = {};  
+    let audioContext;  
+    
+    let userName = "Agent";  
+    let userPfp = "";  
+
+    const API_ENDPOINT = '/api/session';  
+
+    async function fetchUserProfile() {  
+        try {  
+            const res = await fetch(API_ENDPOINT);  
+            if (res.ok) {  
+                const data = await res.json();  
+                userName = data.username || data.name || "Agent";  
+
+                userPfp = data.pfp || data.avatar || `https://ui-avatars.com/api/?name=${encodeURIComponent(userName)}&background=a855f7&color=fff`; 
+                return;  
+            }  
+        } catch (err) {  
+            console.log("Could not fetch from API, using fallback.");  
+        }  
+        
+        userName = "Agent " + Math.floor(Math.random() * 1000);  
+        userPfp = `https://ui-avatars.com/api/?name=${encodeURIComponent(userName)}&background=a855f7&color=fff`;  
+    }  
+
+    function attachVolumeMeter(stream, wrapperId) {  
+        if (!audioContext) audioContext = new (window.AudioContext || window.webkitAudioContext)();  
+        
+        if (audioContext.state === 'suspended') {  
+            return;  
+        }  
+        
+        try {  
+            const audioTracks = stream.getAudioTracks();  
+            if(audioTracks.length === 0) return;  
+
+            const analyser = audioContext.createAnalyser();  
+            const microphone = audioContext.createMediaStreamSource(new MediaStream([audioTracks[0]]));  
+            microphone.connect(analyser);  
+            analyser.fftSize = 256;  
+            const bufferLength = analyser.frequencyBinCount;  
+            const dataArray = new Uint8Array(bufferLength);  
+
+            function checkVolume() {  
+                analyser.getByteFrequencyData(dataArray);  
+                let sum = 0;  
+                for (let i = 0; i < bufferLength; i++) sum += dataArray[i];  
+                let average = sum / bufferLength;  
+                
+                const wrapper = document.getElementById(wrapperId);  
+                if (wrapper) {  
+                    if (average > 15 && !wrapper.classList.contains('is-muted')) {  
+                        wrapper.classList.add('is-speaking');  
+                    } else {  
+                        wrapper.classList.remove('is-speaking');  
+                    }  
+                }  
+                requestAnimationFrame(checkVolume);  
+            }  
+            checkVolume();  
+        } catch(e) {  
+            console.log("Audio analyzer init failed", e);  
+        }  
+    }  
+
+    async function init() {
+        await fetchUserProfile();
+        
+        document.getElementById('local-name-label').innerText = userName + " (You)";
+        document.getElementById('local-avatar-img').src = userPfp;
+
+        try {
+            localStream = await navigator.mediaDevices.getUserMedia({  
+                video: false,  
+                audio: { 
+                    sampleRate: 192000, 
+                    sampleSize: 24, 
+                    channelCount: 2,
+                    echoCancellation: false, 
+                    noiseSuppression: false, 
+                    autoGainControl: false 
+                }  
+            });
+            
+            document.getElementById('local-audio').srcObject = localStream;
+            attachVolumeMeter(localStream, 'local-user-wrapper');
+            
+            socket.emit('join-call', roomId);
+        } catch (e) {
+            console.error("Access denied", e);
+            alert("Mic access required for calls.");
+        }
+    }
+
+    socket.on('user-connected', (data) => {  
+        const remoteSocketId = data.socketId;  
+        const realUsername = data.username;  
+        createPeerConnection(remoteSocketId, true, realUsername);  
+    });  
+
+    function createPeerConnection(userId, isOffer, remoteUserName = "Unknown") {  
+        const pc = new RTCPeerConnection({  
+            iceServers: [{ urls: 'stun:stun.l.google.com:19302' }]  
+        });  
+
+        peers[userId] = pc;  
+
+        localStream.getTracks().forEach(track => pc.addTrack(track, localStream));  
+
+        pc.ontrack = event => {  
+            const stream = event.streams[0];  
+            const wrapperId = `wrapper-${userId}-${stream.id}`;  
+
+            if (document.getElementById(wrapperId)) return;  
+            
+            const wrapper = document.createElement('div');  
+            wrapper.className = 'user-wrapper';  
+            wrapper.id = wrapperId;  
+            
+            const muteIndicator = document.createElement('div');  
+            muteIndicator.className = 'mute-indicator';  
+            muteIndicator.innerHTML = `  
+
+                <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">  
+                    <line x1="1" y1="1" x2="23" y2="23"></line>  
+                    <path d="M9 9v3a3 3 0 0 0 5.12 2.12M15 9.34V4a3 3 0 0 0-5.94-.6"></path>  
+                    <path d="M17 16.95A7 7 0 0 1 5 12H3a9 9 0 0 0 11.5 8.8l-1.5-1.85z"></path>  
+                    <path d="M21 12c0 1.5-.4 2.9-1.06 4.1l-1.65-1.65A4.98 4.98 0 0 0 19 12h2z"></path>  
+                </svg>  
+            `;  
+
+            const audio = document.createElement('audio');  
+            audio.autoplay = true;  
+            audio.playsInline = true;  
+            audio.srcObject = stream;  
+            
+            const safePfp = `https://ui-avatars.com/api/?name=${encodeURIComponent(remoteUserName)}&background=random&color=fff`; 
+            
+            const avatarImg = document.createElement('img');  
+            avatarImg.src = safePfp;  
+            avatarImg.className = 'avatar-img';  
+
+            const label = document.createElement('div');  
+            label.className = 'user-label';  
+            label.innerText = remoteUserName;  
+            
+            wrapper.append(muteIndicator, audio, avatarImg, label);  
+            userGrid.append(wrapper);  
+
+            setTimeout(() => attachVolumeMeter(stream, wrapper.id), 1000);  
+        };  
+
+        pc.onicecandidate = event => {  
+            if (event.candidate) {  
+                socket.emit('ice-candidate', { candidate: event.candidate, to: userId });  
+            }  
+        };  
+        
+        pc.onnegotiationneeded = async () => {  
+            try {  
+                const offer = await pc.createOffer();  
+                await pc.setLocalDescription(offer);  
+                socket.emit('offer', { offer, to: userId });  
+            } catch (err) {  
+                console.error("Negotiation error:", err);  
+            }  
+        };  
+
+        return pc;  
+    }  
+
+    socket.on('offer', async (data) => {  
+        const { offer, from, username: remoteName } = data;  
+        const pc = peers[from] || createPeerConnection(from, false, remoteName);  
+        
+        try {  
+            await pc.setRemoteDescription(new RTCSessionDescription(offer));  
+            const answer = await pc.createAnswer();  
+            await pc.setLocalDescription(answer);  
+            socket.emit('answer', { answer, to: from });  
+        } catch (err) {  
+            console.error("Error handling offer:", err);  
+        }  
+    });  
+
+    socket.on('answer', ({ answer, from }) => {  
+        if(peers[from]) peers[from].setRemoteDescription(new RTCSessionDescription(answer));  
+    });  
+
+    socket.on('ice-candidate', ({ candidate, from }) => {  
+        if(peers[from]) peers[from].addIceCandidate(new RTCIceCandidate(candidate));  
+    });  
+
+    socket.on('user-disconnected', userId => {  
+        if (peers[userId]) {  
+            peers[userId].close();  
+            delete peers[userId];  
+        }  
+        document.querySelectorAll(`[id^="wrapper-${userId}"]`).forEach(el => el.remove());  
+    });  
+
+    socket.on('mic-toggled', ({ userId, isMuted }) => {  
+        const userWrappers = document.querySelectorAll(`[id^="wrapper-${userId}"]`);  
+        userWrappers.forEach(wrapper => {  
+            if (isMuted) {  
+                wrapper.classList.add('is-muted');  
+            } else {  
+                wrapper.classList.remove('is-muted');  
+            }  
+        });  
+    });  
+
+    function toggleMic() {  
+        if(audioContext && audioContext.state === 'suspended') audioContext.resume();  
+        const audioTrack = localStream.getAudioTracks()[0];  
+        if(!audioTrack) return;  
+        
+        isLocalMuted = !isLocalMuted;  
+        audioTrack.enabled = !isLocalMuted;  
+        
+        document.getElementById('btn-mic').classList.toggle('off', isLocalMuted);  
+        const localWrapper = document.getElementById('local-user-wrapper');  
+        
+        if (isLocalMuted) {  
+            localWrapper.classList.add('is-muted');  
+        } else {  
+            localWrapper.classList.remove('is-muted');  
+        }  
+
+        socket.emit('toggle-mic', { roomId, isMuted: isLocalMuted });  
+    }  
+
+    function leaveCall() {  
+        window.location.href = '/chat';  
+    }  
+
+    function openSettings() {  
+        document.getElementById('settings-modal').classList.add('active');  
+        scanHardware();  
+    }  
+    
+    function closeSettings() {  
+        document.getElementById('settings-modal').classList.remove('active');  
+    }  
+
+    async function applySettings() {  
+        const micId = document.getElementById('mic-select').value;  
+        const quality = document.getElementById('quality-select').value;  
+        
+        const isNoiseSup = document.getElementById('noise-select').value === "true";  
+        const isEchoCan = document.getElementById('echo-select').value === "true";  
+        const isAutoGain = document.getElementById('gain-select').value === "true";  
+
+        closeSettings();  
+
+        let audioConstraints = {  
+            deviceId: micId ? { exact: micId } : undefined,  
+            echoCancellation: isEchoCan,  
+            noiseSuppression: isNoiseSup,  
+            autoGainControl: isAutoGain  
+        };  
+
+        if (quality === 'high') {  
+            audioConstraints.sampleRate = 48000;  audioConstraints.sampleSize = 16; audioConstraints.channelCount = 2;  
+        } else if (quality === 'low') {  
+            audioConstraints.sampleRate = 16000;  
+        }  
+        
+        if (quality === 'ultra') {  
+
+            audioConstraints.sampleRate = 192000;  
+            
+            audioConstraints.sampleSize = 24;  
+            
+            audioConstraints.channelCount = 2;  
+
+            audioConstraints.echoCancellation = false;  
+            audioConstraints.noiseSuppression = false;  
+            audioConstraints.autoGainControl = false;  
+        }  
+
+        try {  
+            const newStream = await navigator.mediaDevices.getUserMedia({ video: false, audio: audioConstraints });  
+            document.getElementById('local-audio').srcObject = newStream;  
+            
+            for (let userId in peers) {  
+                const pc = peers[userId];  
+                
+                const newAudioTrack = newStream.getAudioTracks()[0];  
+                const senderAudio = pc.getSenders().find(s => s.track && s.track.kind === 'audio');  
+                if (senderAudio && newAudioTrack) senderAudio.replaceTrack(newAudioTrack);  
+            }  
+
+            localStream = newStream;  
+            if (isLocalMuted) localStream.getAudioTracks()[0].enabled = false;  
+
+        } catch (err) {  
+            console.error("Error applying new hardware/quality settings:", err);  
+            alert("Could not switch devices or apply constraints.");  
+        }  
+    }  
+
+    async function scanHardware() {  
+        try {  
+            await navigator.mediaDevices.getUserMedia({ audio: true, video: false });  
+            const devices = await navigator.mediaDevices.enumerateDevices();  
+            const micSelect = document.getElementById('mic-select');  
+            
+            micSelect.innerHTML = '';  
+
+            devices.forEach(device => {  
+                const option = document.createElement('option');  
+                option.value = device.deviceId;  
+                option.text = device.label || `DEV_${device.deviceId.substring(0,5).toUpperCase()}`;  
+                if (device.kind === 'audioinput') micSelect.appendChild(option);  
+            });  
+        } catch (err) {  
+            console.error("Hardware scan failed:", err);  
+        }  
+    }  
+
+    init();  
+</script> 
+
+    </body>
+</html>
