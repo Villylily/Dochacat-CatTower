@@ -19,14 +19,14 @@ Once you have your file, drag it to your preferred location and extract it. Open
 
 **Important:** Close the application, then navigate to the `data` folder and open the `config` file. It should look like this:
 
-{
+`{
   "port": 3000,
   "registrationOpen": true,
   "invitePassword": "CHANGE_ME",
   "globalMute": false,
   "maintenanceMode": false,
   "giphyApiKey": ""
-}
+}`
 
 Here, you can change your port, change the invite password, and add a Giphy API key if you have one. DO NOT touch the rest of the file. You can easily edit those remaining settings (and the invite key) directly from the admin panel later.
 
