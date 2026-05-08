@@ -1,6 +1,7 @@
 # Dochacat-CatTower
 "A chat system that does things differently. Built for friends, communities, and hobbyists—not for corporations."
-PLEASE NOTE THIS IS STILL IN DEVELPMENT AND I HAVE SPENT BARELY ANYTIME CHECKING GRAMMER OR ANYTHING ELSE of any files but the licsense, also this project is my first released thing ive made 
+PLEASE NOTE THIS IS STILL IN DEVELPMENT AND I HAVE SPENT BARELY ANYTIME CHECKING GRAMMER OR ANYTHING ELSE of any files but the licsense, also this project is my first released thing ive made.
+I'm fully self taught so who knows I legit just lernt how to make a proper html comment...... ( I'm Very random on learning so leave me alone i dont really take courses just kinda learn as you go )
 # Dochacat:3 CatTower
 
 Welcome to the official documentation for **Dochacat:3 CatTower**!
