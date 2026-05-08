@@ -7,4 +7,5 @@ I'm fully self taught so who knows I legit just lernt how to make a proper html 
 Im also not very good at Github yet.... plus im also prepareing for Beta R0.2 relaseing 
 
 
+If anyone has any tips please email Villylily@dochacat.com
 © Villylily ~ 2026
