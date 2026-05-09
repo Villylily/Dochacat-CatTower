@@ -18,5 +18,7 @@ If anyone has any tips please email Villylily@dochacat.com
 
 
 
-Also if you like or want [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/R5R61Z99JB)
+
 © Villylily ~ 2026
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/R5R61Z99JB)
+
