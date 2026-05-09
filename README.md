@@ -13,4 +13,10 @@ I'm fully self taught so who knows I legit just lernt how to make a proper html 
 Im also not very good at Github yet....
 
 If anyone has any tips please email Villylily@dochacat.com
+
+
+
+
+
+Also if you like or want you support me [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/R5R61Z99JB)
 © Villylily ~ 2026
