@@ -1,4 +1,4 @@
-#D
+# I highly recommend reading it here—it's a lot easier on the eyes: [View License](https://www.dochacat.com/license)
 
 License & Terms
 
